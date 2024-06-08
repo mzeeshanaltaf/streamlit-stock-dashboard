@@ -3,14 +3,19 @@ import plotly.express as px
 import yfinance as yf
 from util import *
 from dotenv import load_dotenv
+import datetime
 
 load_dotenv()
 
 st.title('Stock Dashboard')
 st.sidebar.title('Options')
 ticker = st.sidebar.text_input('Stock Ticker')
-start_date = st.sidebar.date_input('Start Date')
-end_date = st.sidebar.date_input('End Date')
+today = datetime.datetime.now()
+prev_year = today.year - 1
+day = today.day
+month = today.month
+start_date = st.sidebar.date_input('Start Date', datetime.date(prev_year, month, day))
+end_date = st.sidebar.date_input('End Date', today)
 
 submit = st.sidebar.button('Submit', type='primary', disabled=not ticker)
 
