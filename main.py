@@ -8,6 +8,13 @@ import datetime
 load_dotenv()
 
 st.title('Stock Dashboard')
+st.write(':blue[***Enter the stock ticker on the side bar to get financial details***]')
+st.write('''This application has following features.
+
+- Pricing Data of selected time period.
+- Fundamental Data like Balance Sheet, Income Statement, Cash Flow Statement.
+- Top 10 News.
+            ''')
 st.sidebar.title('Options')
 ticker = st.sidebar.text_input('Stock Ticker')
 today = datetime.datetime.now()
